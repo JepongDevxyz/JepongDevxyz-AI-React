@@ -3,9 +3,14 @@
    Labels uppercase, letter-spacing 0.12em. Generous padding.
    Composer: black with 1px gold border.
    Slots: { nav, header, main, composer } */
+import { useState } from "react";
+import { Hamburger, DrawerBackdrop } from "./DrawerNav.jsx";
+
 export default function AmberShell({ nav, header, main, composer }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <div className="shell shell-amber">
+    <div className={`shell shell-amber${drawerOpen ? " nav-open" : ""}`}>
+      {drawerOpen && <DrawerBackdrop onClose={() => setDrawerOpen(false)} />}
       <aside className="am-sidebar" aria-label="Conversations">
         <div className="am-brand">
           JepongDevxyz <em>AI</em>
@@ -18,6 +23,7 @@ export default function AmberShell({ nav, header, main, composer }) {
 
       <div className="am-body">
         <header className="am-header">
+          <Hamburger onOpen={() => setDrawerOpen(true)} />
           <h1>Evening, Jepong</h1>
           {header}
         </header>

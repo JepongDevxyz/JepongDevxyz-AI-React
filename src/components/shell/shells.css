@@ -1331,21 +1331,69 @@
   .shell-chatgpt .cg-sidebar {
     display: none;
   }
+}
 
-  .am-main {
+/* ---- Mobile drawer (hamburger) — flexible sa phone/tablet ---- */
+.jd-hamburger {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .jd-hamburger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .jd-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 190;
+    animation: jd-fade-in 0.2s ease;
+  }
+  @keyframes jd-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  /* nav-open: ipakita ang sidebar bilang overlay drawer (beats display:none) */
+  .shell.nav-open.shell-obsidian .ob-flyout,
+  .shell.nav-open.shell-aurora .au-sidebar,
+  .shell.nav-open.shell-amber .am-sidebar,
+  .shell.nav-open.shell-violet .vi-sidebar,
+  .shell.nav-open.shell-claude .cl-sidebar,
+  .shell.nav-open.shell-chatgpt .cg-sidebar,
+  .shell.nav-open.shell-muse .mu-sidepanel {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: min(300px, 82vw);
+    min-width: 0;
+    z-index: 200;
+    border-radius: 0;
+    margin: 0;
+    animation: jd-drawer-in 0.25s ease;
+    box-shadow: 8px 0 32px rgba(0, 0, 0, 0.35);
+  }
+  /* Muse: itago ang icon strip sa drawer mode para hindi sumiksik */
+  .shell.nav-open.shell-muse .mu-navstrip {
+    display: none;
+  }
+
+  /* --- Mobile refinements (dating nasa responsive block) --- */
+  .shell-amber .am-main {
     padding: 24px 20px;
   }
-
-  .am-composer {
+  .shell-amber .am-composer {
     margin: 0 20px 24px;
   }
-
-  .am-header {
+  .shell-amber .am-header {
     padding: 20px 20px 0;
   }
-
-  .mu-navstrip,
-  .mu-sidepanel {
+  .shell-muse .mu-navstrip,
+  .shell-muse .mu-sidepanel {
     display: none;
   }
 }

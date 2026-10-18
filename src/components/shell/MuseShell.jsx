@@ -8,6 +8,7 @@
 import { useState } from "react";
 import { MessageCircle, Compass, Bell, Lightbulb, CalendarCheck, Newspaper, Sparkles } from "lucide-react";
 import MuseMark from "../brand/MuseMark.jsx";
+import { Hamburger, DrawerBackdrop } from "./DrawerNav.jsx";
 
 const STRIP_ITEMS = [
   { key: "chat", icon: MessageCircle, label: "Chat" },
@@ -24,9 +25,11 @@ const SUGGESTIONS = [
 
 export default function MuseShell({ nav, header, main, composer }) {
   const [active, setActive] = useState("chat");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="shell shell-muse">
+    <div className={`shell shell-muse${drawerOpen ? " nav-open" : ""}`}>
+      {drawerOpen && <DrawerBackdrop onClose={() => setDrawerOpen(false)} />}
       {/* Slim icon strip — icons only */}
       <nav className="mu-navstrip" aria-label="Primary">
         {STRIP_ITEMS.map(({ key, icon: Icon, label }) => (
@@ -52,6 +55,7 @@ export default function MuseShell({ nav, header, main, composer }) {
       <div className="mu-thread">
         <div className="mu-thread__inner">
           <header className="mu-header">
+            <Hamburger onOpen={() => setDrawerOpen(true)} />
             <MuseMark size={42} />
             <div>
               <div className="mu-header__name">JepongDevxyz AI</div>

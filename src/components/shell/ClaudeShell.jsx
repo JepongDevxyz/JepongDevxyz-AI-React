@@ -6,11 +6,15 @@
    Brand: ClaudeMark (carbon copy starburst) sa sidebar, header,
    greeting, composer send.
    Slots: { nav, header, main, composer } */
+import { useState } from "react";
 import ClaudeMark from "../brand/ClaudeMark.jsx";
+import { Hamburger, DrawerBackdrop } from "./DrawerNav.jsx";
 
 export default function ClaudeShell({ nav, header, main, composer }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <div className="shell shell-claude">
+    <div className={`shell shell-claude${drawerOpen ? " nav-open" : ""}`}>
+      {drawerOpen && <DrawerBackdrop onClose={() => setDrawerOpen(false)} />}
       <aside className="cl-sidebar" aria-label="Conversations">
         <span className="cl-mark" style={{ marginBottom: 8 }}>
           <ClaudeMark size={36} />
@@ -20,6 +24,7 @@ export default function ClaudeShell({ nav, header, main, composer }) {
 
       <div className="cl-body">
         <header className="cl-top">
+          <Hamburger onOpen={() => setDrawerOpen(true)} />
           <ClaudeMark size={22} />
           {header}
         </header>

@@ -10,6 +10,7 @@ import {
   PanelLeft,
   Settings,
 } from "lucide-react";
+import { Hamburger, DrawerBackdrop } from "./DrawerNav.jsx";
 
 const RAIL_ITEMS = [
   { key: "chat", icon: MessageSquare, tip: "Chat" },
@@ -21,9 +22,12 @@ const RAIL_ITEMS = [
 export default function ObsidianShell({ nav, header, main, composer }) {
   const [flyoutOpen, setFlyoutOpen] = useState(true);
   const [active, setActive] = useState("chat");
+  // On mobile the flyout becomes a drawer (nav-open overrides display:none)
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="shell shell-obsidian">
+    <div className={`shell shell-obsidian${drawerOpen ? " nav-open" : ""}`}>
+      {drawerOpen && <DrawerBackdrop onClose={() => { setDrawerOpen(false); setFlyoutOpen(false); }} />}
       {/* 72px icon rail */}
       <nav className="ob-rail" aria-label="Primary">
         <div className="ob-rail__logo" aria-hidden="true">JD</div>
@@ -45,7 +49,15 @@ export default function ObsidianShell({ nav, header, main, composer }) {
           className="ob-rail__btn jd-tip"
           data-tip="Toggle conversations"
           aria-label="Toggle conversations panel"
-          onClick={() => setFlyoutOpen((v) => !v)}
+          onClick={() => {
+            const isMobile = window.matchMedia("(max-width: 900px)").matches;
+            if (isMobile) {
+              setFlyoutOpen(true);
+              setDrawerOpen(true);
+            } else {
+              setFlyoutOpen((v) => !v);
+            }
+          }}
         >
           <PanelLeft size={22} strokeWidth={1.8} />
         </button>

@@ -7,10 +7,14 @@
    Slots: { nav, header, main, composer } */
 import { ChevronDown, Search } from "lucide-react";
 import ChatGPTMark from "../brand/ChatGPTMark.jsx";
+import { useState } from "react";
+import { Hamburger, DrawerBackdrop } from "./DrawerNav.jsx";
 
 export default function ChatgptShell({ nav, header, main, composer }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <div className="shell shell-chatgpt">
+    <div className={`shell shell-chatgpt${drawerOpen ? " nav-open" : ""}`}>
+      {drawerOpen && <DrawerBackdrop onClose={() => setDrawerOpen(false)} />}
       <aside className="cg-sidebar" aria-label="History">
         <button type="button" className="cg-newchat">
           <ChatGPTMark size={18} />
@@ -25,6 +29,7 @@ export default function ChatgptShell({ nav, header, main, composer }) {
 
       <div className="cg-body">
         <header className="cg-topbar">
+          <Hamburger onOpen={() => setDrawerOpen(true)} />
           <button type="button" className="cg-picker" aria-label="Choose model">
             <ChatGPTMark size={20} />
             ChatGPT
