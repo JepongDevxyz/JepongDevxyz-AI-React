@@ -1,0 +1,149 @@
+/* connectors.css — Phase 4: ConnectorsPanel + BrowseViews.
+   Lahat theme-synced sa CSS vars; walang hardcoded na dilaw. */
+
+.jd-conn-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.jd-conn-tabs button {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 8px 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.jd-conn-tabs button.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.jd-conn-group { margin-bottom: 16px; }
+.jd-conn-group__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  margin: 0 0 8px 2px;
+}
+.jd-conn-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+.jd-conn-card__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  font-weight: 800;
+  font-size: 15px;
+}
+.jd-conn-card__meta { flex: 1; min-width: 0; }
+.jd-conn-card__name { font-size: 14px; font-weight: 700; }
+.jd-conn-card__blurb {
+  font-size: 12px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jd-conn-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.jd-conn-badge.is-on {
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.4);
+  background: rgba(34, 197, 94, 0.08);
+}
+.jd-conn-badge.is-setup {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.jd-conn-filter {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.jd-conn-filter button {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.jd-conn-filter button.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.jd-conn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.jd-conn-grid .jd-conn-card { margin-bottom: 0; cursor: pointer; }
+.jd-conn-grid .jd-conn-card:active { transform: scale(0.98); }
+
+.jd-approval {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.jd-approval__title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.jd-approval__detail { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+.jd-approval__actions { display: flex; gap: 8px; }
+.jd-approval__status { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.jd-approval__status.is-approved { color: #22c55e; }
+.jd-approval__status.is-denied { color: #f87171; }
+
+.jd-browse-task {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.jd-browse-task__url {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jd-browse-task__meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+@media (max-width: 420px) {
+  .jd-conn-grid { grid-template-columns: 1fr; }
+}

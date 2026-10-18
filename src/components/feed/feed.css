@@ -1,0 +1,96 @@
+/* feed.css — Phase 4: ExploreTabs + FeedView + IdeasView. */
+
+.jd-explore {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+.jd-explore__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 4px;
+  flex: 0 0 auto;
+}
+.jd-explore__title { font-size: 1.05rem; font-weight: 700; flex: 1; }
+.jd-explore__content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 16px 16px;
+}
+.jd-explore__tabbar {
+  display: flex;
+  flex: 0 0 auto;
+  border-top: 1px solid var(--border);
+  padding: 8px 4px calc(10px + env(safe-area-inset-bottom));
+  background: var(--bg);
+}
+.jd-explore__tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--faint);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 0;
+  font-size: 0.62rem;
+  font-weight: 500;
+}
+.jd-explore__tab.is-active { color: var(--accent); }
+.jd-explore__tab:active { transform: scale(0.95); }
+
+/* Feed posts — flat rows, thin dividers (Muse-app parity) */
+.jd-feed-brief {
+  margin: 0 0 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: left;
+}
+.jd-post {
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.jd-post__top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.jd-post__emoji { font-size: 1.7rem; flex: 0 0 auto; line-height: 1.2; }
+.jd-post__head { flex: 1; min-width: 0; }
+.jd-post__kicker { font-size: 0.68rem; font-weight: 600; color: var(--faint); margin-bottom: 4px; }
+.jd-post__headline { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.jd-post__time { font-size: 0.7rem; color: var(--faint); flex: 0 0 auto; margin-top: 2px; }
+.jd-post__body { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+.jd-post__actions { display: flex; gap: 8px; }
+
+/* Idea cards */
+.jd-idea {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.jd-idea__title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.jd-idea__body { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+.jd-idea__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.jd-idea__date { font-size: 11px; color: var(--faint); }

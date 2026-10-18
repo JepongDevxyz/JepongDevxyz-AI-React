@@ -1,0 +1,89 @@
+/* extras.css — Phase 4: NotificationCenter, NotificationBell, ProactiveSuite cards. */
+
+.jd-notif-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+.jd-notif__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+.jd-notif__title { font-size: 1.05rem; font-weight: 700; flex: 1; }
+.jd-notif__list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
+}
+.jd-notif {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+.jd-notif.is-unread { border-color: var(--accent); }
+.jd-notif__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.jd-notif__meta { flex: 1; min-width: 0; }
+.jd-notif__title { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; }
+.jd-notif__body { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.jd-notif__time { font-size: 11px; color: var(--faint); margin-top: 4px; }
+
+.jd-bell { position: relative; }
+.jd-bell__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Proactive cards (gagamitin sa chat empty state / briefing) */
+.jd-proactive {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.jd-proactive__title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.jd-proactive__body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.jd-proactive__body ul { margin: 6px 0 0; padding-left: 18px; }
+.jd-proactive__body li { margin-bottom: 4px; }
