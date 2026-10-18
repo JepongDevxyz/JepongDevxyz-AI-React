@@ -1,0 +1,247 @@
+/* capabilities.css — Phase 5 tools: lahat theme-aware via CSS vars.
+   Walang hardcoded dark colors: gumagamit ng --bg/--surface/--text/--accent etc. */
+
+/* ---------- Tools menu ---------- */
+.jd-tools-grid { display: flex; flex-direction: column; gap: 4px; }
+.jd-tool-row {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: none; border: 0; border-radius: 12px;
+  padding: 10px 8px; cursor: pointer; text-align: left; color: var(--text);
+}
+.jd-tool-row:hover { background: var(--surface2); }
+.jd-tool-row__icon {
+  width: 40px; height: 40px; border-radius: 12px; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft, rgba(124, 92, 255, 0.12));
+  color: var(--accent);
+}
+.jd-tool-row__icon svg { width: 20px; height: 20px; }
+.jd-tool-row__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.jd-tool-row__label { font-weight: 600; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; }
+.jd-tool-row__desc { font-size: 0.78rem; color: var(--muted); }
+.jd-tools-note { font-size: 0.75rem; color: var(--faint); margin-top: 12px; line-height: 1.5; }
+
+/* ---------- generic capability primitives ---------- */
+.jd-cap-stack { display: flex; flex-direction: column; gap: 12px; }
+.jd-cap-stack--tight { gap: 4px; }
+.jd-cap-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.jd-cap-row--end { justify-content: flex-end; }
+.jd-cap-addrow { display: flex; gap: 8px; }
+.jd-cap-input {
+  flex: 1; min-width: 0; background: var(--surface2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 11px 12px; font-size: 0.92rem; outline: none; font-family: inherit;
+}
+.jd-cap-input:focus { border-color: var(--accent); }
+.jd-cap-input--sm { padding: 8px 10px; font-size: 0.85rem; }
+.jd-cap-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--accent); color: #fff; border: 0; border-radius: 12px;
+  padding: 10px 16px; font-size: 0.88rem; font-weight: 700; cursor: pointer;
+  font-family: inherit; white-space: nowrap; text-decoration: none;
+}
+.jd-cap-btn:disabled { opacity: 0.55; cursor: default; }
+.jd-cap-btn svg { width: 15px; height: 15px; }
+.jd-cap-btn--ghost {
+  background: var(--surface2); color: var(--text);
+  border: 1px solid var(--border); font-weight: 600;
+}
+.jd-cap-iconbtn {
+  background: none; border: 0; color: var(--muted); cursor: pointer;
+  padding: 6px; border-radius: 8px; display: inline-flex;
+}
+.jd-cap-iconbtn:hover { background: var(--surface2); color: var(--text); }
+.jd-cap-iconbtn--danger:hover { color: #ff6b6b; background: rgba(255, 107, 107, 0.1); }
+.jd-cap-iconbtn svg { width: 15px; height: 15px; }
+.jd-cap-list { display: flex; flex-direction: column; gap: 6px; max-height: 300px; overflow-y: auto; }
+.jd-cap-list--compact { max-height: 240px; }
+.jd-cap-empty {
+  text-align: center; color: var(--muted); font-size: 0.88rem;
+  padding: 26px 10px; display: flex; flex-direction: column; gap: 8px; align-items: center;
+}
+.jd-cap-foot {
+  display: flex; align-items: center; gap: 8px;
+  padding-top: 10px; border-top: 1px solid var(--border); flex-wrap: wrap;
+}
+.jd-cap-subhead {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.jd-cap-subhead .jd-cap-iconbtn { margin-left: auto; }
+.jd-cap-subhead svg { width: 15px; height: 15px; }
+.jd-cap-meta { font-size: 0.75rem; color: var(--faint); }
+.jd-cap-note {
+  font-size: 0.85rem; color: var(--muted); background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; line-height: 1.5;
+}
+.jd-cap-warning {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 0.82rem; color: var(--muted); background: var(--accent-soft, rgba(124, 92, 255, 0.08));
+  border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; line-height: 1.5;
+}
+.jd-cap-warning svg { flex: 0 0 auto; margin-top: 1px; color: var(--accent); }
+.jd-cap-warning code { font-size: 0.78rem; }
+.jd-cap-preview {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 12px; font-size: 0.82rem; color: var(--muted);
+  max-height: 140px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;
+}
+.jd-cap-seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.jd-cap-seg__btn {
+  background: var(--surface2); color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 14px; font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.jd-cap-seg__btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* badges */
+.jd-badge {
+  font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.jd-badge--ok { background: rgba(48, 209, 88, 0.14); color: #30d158; }
+.jd-badge--muted { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.jd-badge--warn { background: rgba(245, 158, 11, 0.14); color: #f59e0b; }
+
+/* ---------- todos ---------- */
+.jd-todo-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 12px;
+}
+.jd-todo-check {
+  width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto; cursor: pointer;
+  border: 2px solid var(--muted); background: transparent; color: transparent;
+  display: flex; align-items: center; justify-content: center; padding: 0;
+}
+.jd-todo-check.is-done { background: var(--accent); border-color: var(--accent); color: #fff; }
+.jd-todo-check svg { width: 14px; height: 14px; }
+.jd-todo-text { flex: 1; font-size: 0.9rem; line-height: 1.4; word-break: break-word; color: var(--text); }
+.jd-todo-item.is-done .jd-todo-text { text-decoration: line-through; color: var(--muted); }
+
+/* ---------- JS runner ---------- */
+.jd-codearea {
+  width: 100%; box-sizing: border-box; resize: vertical; min-height: 130px;
+  background: var(--bg, #0c0c0e); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px; line-height: 1.5; outline: none;
+}
+.jd-codearea:focus { border-color: var(--accent); }
+.jd-codearea--tall { min-height: 220px; }
+.jd-jsout {
+  background: var(--bg, #0c0c0e); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 12px; min-height: 90px; max-height: 260px; overflow-y: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px; white-space: pre-wrap; word-break: break-word;
+}
+.jd-jsout__line { padding: 1px 0; color: var(--text); }
+.jd-jsout__line--warn { color: #f59e0b; }
+.jd-jsout__line--error { color: #ff6b6b; }
+.jd-jsout__line--return { color: #30d158; }
+.jd-jsout__line--sys { color: var(--muted); font-style: italic; }
+
+/* ---------- file editor ---------- */
+.jd-file-row {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 6px 6px 6px 12px;
+}
+.jd-file-row.is-active { border-color: var(--accent); }
+.jd-file-row__name {
+  flex: 1; min-width: 0; background: none; border: 0; cursor: pointer;
+  color: var(--text); font-size: 0.85rem; text-align: left;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: inherit;
+}
+.jd-file-row__meta { font-size: 0.72rem; color: var(--faint); white-space: nowrap; }
+
+/* ---------- deep research / web search ---------- */
+.jd-research-steps { display: flex; flex-direction: column; gap: 6px; }
+.jd-research-step {
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+  background: var(--surface2); border-radius: 10px; font-size: 0.83rem; color: var(--muted);
+  border-left: 3px solid var(--border);
+}
+.jd-research-step--done { border-left-color: #30d158; color: var(--text); }
+.jd-research-step--active { border-left-color: var(--accent); color: var(--text); }
+.jd-research-step--error { border-left-color: #ff6b6b; }
+.jd-step-ic--done { color: #30d158; flex: 0 0 auto; }
+.jd-step-ic--error { color: #ff6b6b; flex: 0 0 auto; }
+.jd-step-dot { width: 15px; height: 15px; border-radius: 50%; background: var(--border); flex: 0 0 auto; }
+.jd-research-report {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px; max-height: 380px; overflow-y: auto;
+}
+.jd-cite-row {
+  display: flex; gap: 10px; align-items: flex-start; text-decoration: none;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 9px 12px; color: var(--text);
+}
+.jd-cite-row:hover { border-color: var(--accent); }
+.jd-cite-row__n {
+  flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent-soft, rgba(124, 92, 255, 0.12)); color: var(--accent);
+  font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.jd-cite-row__t { font-size: 0.86rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.jd-cite-row__t svg { width: 12px; height: 12px; flex: 0 0 auto; }
+.jd-cite-row__body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.jd-cite-row__s { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+.jd-cite-row__u { font-size: 0.72rem; color: var(--faint); word-break: break-all; }
+
+/* ---------- image gen ---------- */
+.jd-imgs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.jd-imgs a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.jd-imgs img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.jd-hist-row {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  background: none; border: 0; border-radius: 10px; padding: 6px;
+  cursor: pointer; text-align: left; color: var(--text); font-family: inherit;
+}
+.jd-hist-row:hover { background: var(--surface2); }
+.jd-hist-row__thumb {
+  width: 44px; height: 44px; border-radius: 10px; object-fit: cover; flex: 0 0 auto;
+  border: 1px solid var(--border);
+}
+.jd-hist-row__thumb--empty {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); color: var(--muted);
+}
+.jd-hist-row__thumb--empty svg { width: 16px; height: 16px; }
+.jd-hist-row__text {
+  flex: 1; min-width: 0; font-size: 0.85rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---------- maps ---------- */
+.jd-mapwrap {
+  border-radius: 14px; overflow: hidden; border: 1px solid var(--border);
+  aspect-ratio: 16 / 10; background: var(--surface2);
+}
+.jd-mapwrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ---------- chat attachment chips (FileEditor "Edit" entry) ---------- */
+.jd-attchips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.jd-attchip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 6px 5px 10px; font-size: 0.76rem; color: var(--text);
+  max-width: 100%;
+}
+.jd-attchip svg { width: 13px; height: 13px; flex: 0 0 auto; }
+.jd-attchip__name {
+  max-width: 160px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.jd-attchip__edit {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--accent-soft, rgba(124, 92, 255, 0.12)); color: var(--accent);
+  border: 0; border-radius: 999px; padding: 4px 10px; font-size: 0.72rem; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+
+/* small screens */
+@media (max-width: 520px) {
+  .jd-cap-addrow { flex-direction: column; }
+  .jd-cap-addrow .jd-cap-btn { justify-content: center; }
+}
