@@ -1,0 +1,34 @@
+/* Aurora Glass — translucent surfaces + blur, aurora gradient blobs */
+[data-design="aurora-glass"][data-mode="dark"] {
+  --bg: #0b1026;
+  --bg2: #101838;
+  --surface: rgba(255, 255, 255, 0.07);
+  --surface2: rgba(255, 255, 255, 0.12);
+  --text: #f2f0ff;
+  --muted: #b3aee0;
+  --faint: #7a76a8;
+  --accent: #a78bfa;
+  --accent-soft: rgba(167, 139, 250, 0.16);
+  --border: rgba(255, 255, 255, 0.14);
+  --radius: 24px;
+  --glow: 0 8px 32px rgba(167, 139, 250, 0.25);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+[data-design="aurora-glass"][data-mode="light"] {
+  --bg: #f4f2ff;
+  --bg2: #ece9ff;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface2: rgba(255, 255, 255, 0.75);
+  --text: #241d4d;
+  --muted: #5f588f;
+  --faint: #9690bd;
+  --accent: #7c5cf0;
+  --accent-soft: rgba(124, 92, 240, 0.12);
+  --border: rgba(124, 92, 240, 0.18);
+  --radius: 24px;
+  --glow: 0 8px 32px rgba(124, 92, 240, 0.18);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}

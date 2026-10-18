@@ -1,0 +1,34 @@
+/* Claude style — warm cream paper, coral accent, dark ink, serif headings */
+[data-design="claude"][data-mode="light"] {
+  --bg: #f4f3ee;
+  --bg2: #edece5;
+  --surface: #fbfaf7;
+  --surface2: #e9e6dc;
+  --text: #191817;
+  --muted: #6b6560;
+  --faint: #a39d94;
+  --accent: #c96442;
+  --accent-soft: rgba(201, 100, 66, 0.1);
+  --border: #e0dbce;
+  --radius: 16px;
+  --glow: 0 8px 24px rgba(201, 100, 66, 0.14);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", "Songti SC", serif;
+}
+
+[data-design="claude"][data-mode="dark"] {
+  --bg: #232220;
+  --bg2: #1c1b1a;
+  --surface: #2d2c29;
+  --surface2: #383732;
+  --text: #ede9e1;
+  --muted: #b0a89b;
+  --faint: #7a7368;
+  --accent: #d97757;
+  --accent-soft: rgba(217, 119, 87, 0.14);
+  --border: #45423c;
+  --radius: 16px;
+  --glow: 0 8px 24px rgba(217, 119, 87, 0.16);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", "Songti SC", serif;
+}

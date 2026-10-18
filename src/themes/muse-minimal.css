@@ -1,0 +1,34 @@
+/* Muse Minimal — warm paper, muted sage accent, tight radii (≤8px), sans */
+[data-design="muse-minimal"][data-mode="light"] {
+  --bg: #faf9f7;
+  --bg2: #f3f1ec;
+  --surface: #ffffff;
+  --surface2: #f1efe9;
+  --text: #2a2723;
+  --muted: #6e675e;
+  --faint: #a8a094;
+  --accent: #5f8b7a;
+  --accent-soft: rgba(95, 139, 122, 0.12);
+  --border: #e6e2d8;
+  --radius: 8px;
+  --glow: 0 2px 12px rgba(95, 139, 122, 0.15);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+[data-design="muse-minimal"][data-mode="dark"] {
+  --bg: #1a1a19;
+  --bg2: #20201f;
+  --surface: #242423;
+  --surface2: #2d2d2b;
+  --text: #edeae3;
+  --muted: #a39c8f;
+  --faint: #6b665c;
+  --accent: #7ba998;
+  --accent-soft: rgba(123, 169, 152, 0.14);
+  --border: #3a3835;
+  --radius: 8px;
+  --glow: 0 2px 12px rgba(123, 169, 152, 0.18);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}

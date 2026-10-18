@@ -1,0 +1,36 @@
+/* Violet Storm — deep violet #1a0b2e + electric purple #a855f7 */
+[data-design="violet-storm"][data-mode="dark"] {
+  --bg: #1a0b2e;
+  --bg2: #210f3a;
+  --surface: #2a1548;
+  --surface2: #341b58;
+  --text: #f3edff;
+  --muted: #c0aee8;
+  --faint: #8a76b8;
+  --accent: #a855f7;
+  --accent-soft: rgba(168, 85, 247, 0.16);
+  --border: rgba(168, 85, 247, 0.3);
+  --radius: 24px;
+  --glow: 0 8px 32px rgba(168, 85, 247, 0.35);
+  --shadow-tint: 0 12px 40px rgba(88, 40, 160, 0.45);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+[data-design="violet-storm"][data-mode="light"] {
+  --bg: #f6f2ff;
+  --bg2: #ede6ff;
+  --surface: #ffffff;
+  --surface2: #f1eaff;
+  --text: #2a1445;
+  --muted: #6b5590;
+  --faint: #a08bc8;
+  --accent: #7c3aed;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --border: rgba(124, 58, 237, 0.22);
+  --radius: 24px;
+  --glow: 0 8px 28px rgba(124, 58, 237, 0.22);
+  --shadow-tint: 0 12px 32px rgba(124, 58, 237, 0.18);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}

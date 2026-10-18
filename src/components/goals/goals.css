@@ -1,0 +1,77 @@
+/* goals.css — Phase 4: GoalsView, GoalDetail, IntakeSheet. */
+
+.jd-goal-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: var(--text);
+}
+.jd-goal-card:active { transform: scale(0.99); }
+.jd-goal-card.is-done { opacity: 0.65; }
+.jd-goal-card__title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.jd-goal-card__desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.jd-goal-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--faint);
+}
+.jd-goal-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface2);
+  overflow: hidden;
+  margin: 8px 0 4px;
+}
+.jd-goal-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.jd-goal-pct { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.jd-thread {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.jd-thread__meta { flex: 1; min-width: 0; }
+.jd-thread__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.jd-thread__date { font-size: 11px; color: var(--faint); }
+
+.jd-goal-hero { margin-bottom: 4px; }
+.jd-goal-hero h3 { margin: 0 0 6px; font-size: 18px; }
+.jd-goal-hero p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+
+.jd-range {
+  width: 100%;
+  accent-color: var(--accent);
+  margin: 8px 0;
+}
