@@ -1323,12 +1323,12 @@
 
 /* ================= Responsive ================= */
 @media (max-width: 900px) {
-  .ob-flyout,
-  .au-sidebar,
-  .am-sidebar,
-  .vi-sidebar,
-  .cl-sidebar,
-  .cg-sidebar {
+  .shell-obsidian .ob-flyout,
+  .shell-aurora .au-sidebar,
+  .shell-amber .am-sidebar,
+  .shell-violet .vi-sidebar,
+  .shell-claude .cl-sidebar,
+  .shell-chatgpt .cg-sidebar {
     display: none;
   }
 
