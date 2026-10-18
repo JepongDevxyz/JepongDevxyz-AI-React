@@ -1,0 +1,1 @@
+{"rewrites":[{"destination":"https://jepong-devxyz-ai.vercel.app/api/:path*","source":"/api/:path*"}]}
