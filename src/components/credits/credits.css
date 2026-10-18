@@ -1,0 +1,156 @@
+/* credits.css — Phase 4: TopUpModal + UsagePanel.
+   BRAND RULE: Top-up NEVER yellow — lahat theme-synced sa var(--accent). */
+
+.jd-topup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 4px 0 14px;
+}
+.jd-tier {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius, 16px);
+  padding: 14px 10px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text);
+  position: relative;
+  transition: border-color 0.15s, transform 0.1s;
+}
+.jd-tier:active { transform: scale(0.97); }
+.jd-tier.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.jd-tier__popular {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.jd-tier__label { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.jd-tier__price { font-size: 20px; font-weight: 800; color: var(--accent); }
+.jd-tier__credits { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.jd-tier__tagline { font-size: 11px; color: var(--faint); margin-top: 2px; }
+
+.jd-pay-status {
+  text-align: center;
+  padding: 8px 0;
+}
+.jd-pay-status__qr {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 12px;
+}
+.jd-pay-status__ref {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 8px 0;
+  word-break: break-all;
+}
+.jd-pay-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.jd-pay-note { font-size: 12px; color: var(--faint); margin-top: 10px; line-height: 1.5; }
+.jd-pay-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 0 6px;
+  text-align: center;
+}
+.jd-pay-success__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jd-pay-error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #f87171;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* Usage panel */
+.jd-usage-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface2);
+  overflow: hidden;
+  margin: 6px 0 2px;
+}
+.jd-usage-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.jd-usage-day {
+  display: grid;
+  grid-template-columns: 64px 1fr 52px;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.jd-usage-day:last-child { border-bottom: 0; }
+.jd-usage-day__label { color: var(--muted); font-size: 12px; }
+.jd-usage-day__val { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.jd-usage-model {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.jd-usage-model:last-child { border-bottom: 0; }
+.jd-usage-model__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
+.jd-usage-model__val { color: var(--muted); font-variant-numeric: tabular-nums; }
+.jd-usage-note { font-size: 12px; color: var(--faint); line-height: 1.5; margin-top: 10px; }
+
+@media (max-width: 420px) {
+  .jd-topup-grid { grid-template-columns: 1fr; }
+  .jd-tier__popular { top: 8px; left: auto; right: 8px; transform: none; }
+}
